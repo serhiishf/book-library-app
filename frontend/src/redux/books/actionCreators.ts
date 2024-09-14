@@ -1,8 +1,8 @@
 import * as actionTypes from './actionTypes';
 import * as dataTypes from '../../types/data';
-import { ActionType } from '../../types/actionsRedux';
+import { ActionPayload } from '../types';
 
-export const addBook = (newBook: dataTypes.BookType): ActionType<dataTypes.BookType> => {
+export const addBook = (newBook: dataTypes.BookType): ActionPayload<dataTypes.BookType> => {
   return {
     type: actionTypes.ADD_BOOK,
     payload: newBook,

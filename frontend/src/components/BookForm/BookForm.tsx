@@ -1,18 +1,26 @@
 import clsx from 'clsx';
-import styles from './BookForm.module.scss';
 import { useState } from 'react';
+import { useDispatch } from 'react-redux';
+import { addBook } from '../../redux/books/actionCreators';
+import styles from './BookForm.module.scss';
 
 const BookForm = () => {
   const [title, setTitle] = useState('');
   const [author, setAuthor] = useState('');
+  const dispatch = useDispatch();
+  console.log(dispatch, useDispatch);
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
 
     if (title && author) {
+      const book = {
+        title,
+        author,
+      };
+      dispatch(addBook(book));
       setTitle('');
       setAuthor('');
-      //TODO dispatch action
     }
   };
 
